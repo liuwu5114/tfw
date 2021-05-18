@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tongtech.biz.portal.section.dao.PortalSectionDao">
+    <!-- 开启二级缓存 -->
+    <!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/> -->
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tongtech.biz.portal.section.model.domain.PortalSection">
+                                    <id column="biz_id" property="bizId"/>
+                                                <id column="status" property="status"/>
+                                                <id column="create_by" property="createBy"/>
+                                                <id column="create_date" property="createDate"/>
+                                                <id column="update_by" property="updateBy"/>
+                                                <id column="update_date" property="updateDate"/>
+                                                <id column="remarks" property="remarks"/>
+                                                <id column="section_name" property="sectionName"/>
+                                                <id column="p_section" property="pSection"/>
+                                                <id column="section_e_name" property="sectionEName"/>
+                                                <id column="show" property="show"/>
+                                                <id column="section_desc" property="sectionDesc"/>
+                                                <id column="section_order" property="sectionOrder"/>
+                                                <id column="section_model" property="sectionModel"/>
+                        </resultMap>
+</mapper>

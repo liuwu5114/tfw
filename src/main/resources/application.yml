@@ -1,0 +1,97 @@
+spring:
+  profiles:
+    active: @profileActive@
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+server:
+  port: 18083
+  servlet:
+    context-path: /tfw
+
+## Mybatis
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: uuid
+  configuration:
+    cache-enabled: false
+    ##log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/**/**.xml
+  configuration-properties:
+    prefix:
+    blobType: BLOB
+    boolValue: TRUE
+
+## Swagger
+swagger:
+  enable: true
+  title: API查看器
+  description:
+  version: 1.0
+  contact:
+    name: tongtech
+    url: a.b.c.d
+    mail: a@b.c.d
+
+## 代码生成
+gen:
+  # 作者
+  author: tong-framework
+  # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
+  packageName: com.tongtech.backend.apis.biz.test
+  # 自动去除表前缀，默认是true
+  autoRemovePre: false
+  # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
+  tablePrefix: sys_
+
+## 异步线程池
+tong:
+  async:
+    executor:
+      thread:
+        core_pool_size: 5
+        max_pool_size: 5
+        queue_capacity: 999
+        name:
+          prefix: tong-async-
+
+## Log Path
+logging:
+  file:
+    path: logs/
+
+## Flowable
+flowable:
+  async-executor-activate: false
+
+## File Path
+file:
+  path: file/
+dataview:
+  file: dataview-file/
+
+## Auth Filter
+auth:
+  ##为true，进行资源URI与授权的关联判断
+  resource: true
+  ##三员分立功能开关
+  sanyuan: false
+  sign:
+    ignoreGet: false
+    timeGap: 60000
+
+## Framework
+tfw:
+  request:
+    ##不需要进行request封装的URI
+    ignore: /**/druid/*,/**/ureport/*
+  basePath: http://127.0.0.1:${server.port}
+
+## WEB Portal Tiny
+tiny:
+  file:
+    path: tinyFile/
+    url: /tinyFile/
