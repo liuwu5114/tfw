@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableKnife4j
 @Import(
     value = {
-      // 引入修改的配置 12
+      // 引入修改的配置 12qwe
       ApplicationConfiguration.class,
       AppDispatcherServletConfiguration.class,
       DatabaseAutoConfiguration.class

@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tongtech</groupId>
+    <artifactId>tfw-startup</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>tfw-startup</name>
+    <description>local-startup</description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <properties>
+        <!-- GENERAL -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <!-- Lombok -->
+        <lombok.version>1.18.16</lombok.version>
+        <!-- XNIO NIO-->
+        <xnio.version>3.8.4.Final</xnio.version>
+        <!-- CORE -->
+        <!-- Model Mapper -->
+        <model-mapper.version>2.3.9</model-mapper.version>
+        <!-- Bouncy Castle -->
+        <bouncycastle.version>1.68</bouncycastle.version>
+        <!--Zip 4 J-->
+        <zip4j.version>2.6.4</zip4j.version>
+        <!-- BSON -->
+        <bson.version>4.1.1</bson.version>
+        <!-- CORE -->
+        <!-- COMMON -->
+        <!-- Common IO -->
+        <commons-io.version>2.8.0</commons-io.version>
+        <!--hibernate-validator-->
+        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+        <!--knife4j swagger -->
+        <knife4j.version>3.0.2</knife4j.version>
+        <!-- Gson -->
+        <gson.version>2.8.6</gson.version>
+        <!-- Mybatis Plus -->
+        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis-jsr310.version>1.0.2</mybatis-jsr310.version>
+        <!-- COMMON -->
+        <!--Easy Excel-->
+        <easy-excel.version>2.2.6</easy-excel.version>
+        <!-- JWT Token -->
+        <jwt.version>0.9.1</jwt.version>
+
+
+        <!-- Velocity -->
+        <velocity.version>1.7</velocity.version>
+        <!--UReport 2-->
+        <ureport.version>2.2.9</ureport.version>
+        <!--Flowable -->
+        <flowable.version>6.5.0</flowable.version>
+
+        <oshi.version>5.1.0</oshi.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-workflow</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-workflow-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-dataview</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-dataview-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-ureport</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-ureport-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-backend-gen</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-backend-gen-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-backend-admin</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-backend-admin-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-backend-common</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-backend-common-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.tongtech</groupId>
+            <artifactId>tfw-core</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/tfw/tfw-core-1.3-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <!-- Mysql Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <!-- Mysql Connector End -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.3.1.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi.version}</version>
+        </dependency>
+        <!-- Spring WEB -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- Spring Aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- Spring Aop End-->
+        <!-- Undertow Server -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!-- Xnio - nio -->
+        <dependency>
+            <groupId>org.jboss.xnio</groupId>
+            <artifactId>xnio-nio</artifactId>
+            <version>${xnio.version}</version>
+        </dependency>
+        <!-- Undertow Server End-->
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version><!--$NO-MVN-MAN-VER$-->
+        </dependency>
+        <!-- Lombok End -->
+
+        <!-- tfw-core -->
+        <!-- Model Mapper -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${model-mapper.version}</version>
+        </dependency>
+        <!-- Model Mapper -->
+        <!--Mongo Bson -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>${bson.version}</version>
+        </dependency>
+        <!--Mongo Bson End-->
+        <!--国密依赖包-->
+        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
+        <!--Zip 4 j-->
+        <!-- https://mvnrepository.com/artifact/net.lingala.zip4j/zip4j -->
+        <dependency>
+            <groupId>net.lingala.zip4j</groupId>
+            <artifactId>zip4j</artifactId>
+            <version>${zip4j.version}</version>
+        </dependency>
+        <!-- tfw-core -->
+
+        <!-- tfw-common -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+        <!-- Gson End -->
+        <!-- Mybatis -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-typehandlers-jsr310</artifactId>
+            <version>${mybatis-jsr310.version}</version>
+        </dependency>
+        <!-- Mybatis End -->
+        <!-- Jwt Token -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jwt.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Jwt Token End -->
+        <!--  &lt;!&ndash; https://mvnrepository.com/artifact/com.auth0/java-jwt &ndash;&gt; -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <!-- tfw-common -->
+
+        <!-- tfw-admin -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>${easy-excel.version}</version>
+        </dependency>
+        <!-- tfw-admin -->
+
+        <!-- tfw-gen -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- tfw-gen -->
+
+        <!-- tfw-dataview -->
+        <!-- tfw-databview -->
+
+        <!-- tfw-ureport -->
+        <!-- UREPORT-->
+        <dependency>
+            <groupId>com.bstek.ureport</groupId>
+            <artifactId>ureport2-console</artifactId>
+            <version>${ureport.version}</version>
+        </dependency>
+        <!-- UREPORT-->
+        <!-- tfw-ureport -->
+
+        <!-- tfw-workflow -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-rest</artifactId>
+            <version>${flowable.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-yaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Flowable Modeler UI -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-logic</artifactId>
+            <version>6.5.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+                <!-- JSON -->
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-json-org</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-hppc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-joda</artifactId>
+                </exclusion>
+                <!-- SPRING -->
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context-support</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-expression</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jdbc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-config</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-crypto</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-conf</artifactId>
+            <version>${flowable.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-rest</artifactId>
+            <version>${flowable.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+                <!-- JSON -->
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-json-org</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-hppc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-joda</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- tfw-workflow -->
+
+    </dependencies>
+
+    <build>
+        <defaultGoal>compile</defaultGoal>
+
+        <!-- 打包后的启动jar名称 -->
+        <finalName>${project.artifactId}-${project.version}-${profileActive}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>mapper/*.xml</include>
+                    <include>mapper/**/*.xml</include>
+                    <include>resources/**</include>
+                    <include>templates/**</include>
+                    <include>vm/**</include>
+                    <include>*.xml</include>
+                    <include>*.properties</include>
+                </includes>
+            </resource>
+            <!-- 过滤配置文件到config目录 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <targetPath>config</targetPath>
+                <includes>
+                    <include>application.yml</include>
+                    <include>application-${profileActive}.yml</include>
+                    <include>ureport.properties</include>
+                    <include>ureport.xml</include>
+                </includes>
+            </resource>
+
+            <!-- 过滤脚本文件到bin目录 -->
+            <resource>
+                <directory>src/main/resources/scripts</directory>
+                <filtering>true</filtering>
+                <targetPath>bin</targetPath>
+                <includes>
+                    <include>*.bat</include>
+                    <include>*.sh</include>
+                </includes>
+            </resource>
+
+            <!-- 包含EXCEL到EXCEL目录 -->
+            <resource>
+                <directory>excel</directory>
+                <targetPath>excel</targetPath>
+                <includes>
+                    <include>*.xlsx</include>
+                </includes>
+            </resource>
+
+            <!-- 包含JAR到lib目录 -->
+            <resource>
+                <directory>tfw</directory>
+                <targetPath>../lib</targetPath>
+                <includes>
+                    <include>*.jar</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 项目启动类 -->
+                            <mainClass>com.tongtech.TfwStartupApplication</mainClass>
+                            <!-- 依赖的jar的目录前缀 -->
+                            <classpathPrefix>../lib</classpathPrefix>
+                            <addClasspath>true</addClasspath>
+                            <useUniqueVersions>false</useUniqueVersions>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-path>../lib/tfw-workflow-1.3-SNAPSHOT.jar ../lib/tfw-dataview-1.3-SNAPSHOT.jar
+                                ../lib/tfw-ureport-1.3-SNAPSHOT.jar ../lib/tfw-backend-admin-1.3-SNAPSHOT.jar
+                                ../lib/tfw-backend-gen-1.3-SNAPSHOT.jar ../lib/tfw-backend-common-1.3-SNAPSHOT.jar
+                                ../lib/tfw-core-1.3-SNAPSHOT.jar
+                            </Class-path>
+                        </manifestEntries>
+                    </archive>
+                    <!-- 项目启动jar包排除目录 -->
+                    <excludes>
+                        <exclude>bin/**</exclude>
+                        <exclude>config/**</exclude>
+                        <exclude>logs/**</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/lib/
+                            </outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                </resource>
+                            </resources>
+                            <outputDirectory>${project.build.directory}/resources</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <!-- 打包时跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <!-- 打包插件 -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>src/main/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <profileActive>local</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profileActive>test</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profileActive>prod</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+</project>
